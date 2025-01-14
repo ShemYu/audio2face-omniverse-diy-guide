@@ -1,54 +1,71 @@
-# Audio2Face Omniverse DIY 指南
+# Audio2Face Omniverse DIY Guide
 
-这个仓库提供了使用 NVIDIA Omniverse Audio2Face 的完整实践指南和示例代码。
+This repository provides complete practical guides and sample code for using NVIDIA Omniverse Audio2Face.
 
-## 功能特点
+![alt text](docs/images/audio2face_omniverse_diy_guide.png)
+*System Flow Diagram from NVIDIA Tutorial Guide*
+> This guide is based on NVIDIA official documentation [Docker with Omniverse Renderer](https://docs.nvidia.com/ace/latest/workflows/animation_pipeline/docker_with_omniverse_renderer.html) and extended by practical experience.
 
-- 🎯 完整的 Audio2Face 部署流程
-- 🚀 包含 Docker 容器化配置
-- 💡 详细的实践教程和示例
-- 🛠 可复用的脚本和工具
+## Prerequisites
 
-## 快速开始
+> ⚠️ **Important Note**: Please refer to [NVIDIA 官方文档](https://docs.nvidia.com/ace/latest/workflows/animation_pipeline/docker_with_omniverse_renderer.html) for system requirements and environment configuration.
 
-1. 克隆仓库
+- 🔑 NVIDIA AI Enterprise (NVAIE) License
+  - Register [NVIDIA AI Enterprise](https://www.nvidia.com/en-us/ai-enterprise/) account
+  - Get 90-day free trial license
+  - Need to purchase official license after trial period ends
+
+- 🔑 NVIDIA GPU
+  - NVIDIA GPU with CUDA support
+  - ⚠️ NVIDIA Container Toolkit ⚠️
+
+## Features
+
+- 🎯 Complete Audio2Face deployment workflow
+- 🚀 Docker containerization configuration
+- 💡 Detailed tutorials and examples
+- 🛠 Reusable scripts and tools
+
+## Quick Start
+
+1. Clone Repository
 ```bash
 git clone https://github.com/yourusername/audio2face-omniverse-diy-guide.git
 cd audio2face-omniverse-diy-guide
 ```
 
-2. 环境配置
+2. Environment Configuration
 ```bash
 ./scripts/setup/install.sh
 ```
 
-3. 运行示例
+3. Run Example
 ```bash
 docker-compose up
 ```
 
-## 文档
+## Documentation
 
-- [入门指南](docs/getting-started.md)
-- [安装说明](docs/installation.md)
-- [配置说明](docs/configuration.md)
-- [常见问题](docs/troubleshooting.md)
+- [Getting Started Guide](docs/getting-started.md)
+- [Installation Guide](docs/installation.md)
+- [Configuration Guide](docs/configuration.md)
+- [Troubleshooting Guide](docs/troubleshooting.md)
 
-## 目录结构
+## Directory Structure
 
 ```
-docs/          - 详细文档
-examples/      - 示例代码
-scripts/       - 脚本文件
-src/           - 源代码
-tests/         - 测试用例
-docker/        - Docker 配置
+docs/          - Detailed documentation
+examples/      - Example code
+scripts/       - Script files
+src/           - Source code
+tests/         - Test cases
+docker/        - Docker configuration
 ```
 
-## 贡献指南
+## Contribution
 
-欢迎提交 Issue 和 Pull Request！
+Welcome to submit Issue and Pull Request!
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
