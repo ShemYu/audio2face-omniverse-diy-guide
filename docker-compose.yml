@@ -1,0 +1,48 @@
+services:
+  audio2face:
+    image: nvcr.io/nvidia/ace/audio2face:1.0.11
+    network_mode: host
+    entrypoint: >
+      /bin/bash -c "
+      ./service/generate_trt_model.py built-in claire_v1.3 &&
+      ./service/generate_a2e_trt_model.py &&
+      ./service/launch_service.py service/a2f_config.yaml"
+    devices:
+      - /dev/nvidia0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+
+  omni_renderer:
+    image: nvcr.io/nvidia/ace/ia-omniverse-renderer-microservice:1.0.5
+    network_mode: host
+    environment:
+      - IAORMS_RTP_NEGOTIATION_HOST_MOCKING_ENABLED=true
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/docker-unreal/default-avatar-scene_v1.0.0:/home/ace/asset
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+
+  animation_graph:
+    image: nvcr.io/nvidia/ace/ia-animation-graph-microservice:1.0.2
+    network_mode: host
+    runtime: nvidia
+    devices:
+      - /dev/nvidia0
+    volumes:
+      - ~/docker-unreal/default-avatar-scene_v1.0.0:/home/ace/asset
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
