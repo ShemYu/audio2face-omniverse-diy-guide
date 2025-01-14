@@ -192,3 +192,8 @@ out/
 build/
 .DS_Store
 .vercel
+
+# Packages
+amazon-kinesis-video-streams-webrtc-sdk-c/
+amazon-kinesis-video-streams-producer-sdk-cpp/
+openssl-1.1.1u/
