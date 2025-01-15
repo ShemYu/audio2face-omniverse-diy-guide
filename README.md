@@ -19,6 +19,14 @@ This repository provides complete practical guides and sample code for using NVI
   - NVIDIA GPU with CUDA support
   - ⚠️ NVIDIA Container Toolkit ⚠️
 
+- 🔑 NGC API Key Login
+  - 登入 [NGC](https://ngc.nvidia.com/) 取得 API Key
+  - 使用 API Key 登入 Docker Registry:
+    ```bash
+    echo <YOUR API Key> | docker login nvcr.io -u $oauthtoken --password-stdin
+    ```
+
+
 ## Features
 
 - 🎯 Complete Audio2Face deployment workflow
