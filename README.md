@@ -19,13 +19,26 @@ This repository provides complete practical guides and sample code for using NVI
   - NVIDIA GPU with CUDA support
   - ⚠️ NVIDIA Container Toolkit ⚠️
 
-- 🔑 NGC API Key Login
-  - 登入 [NGC](https://ngc.nvidia.com/) 取得 API Key
-  - 使用 API Key 登入 Docker Registry:
+- 🔑 NGC API Key 登入
+  - Login to [NGC](https://ngc.nvidia.com/) to get API Key
+  - Use API Key to login Docker Registry:
     ```bash
     echo <YOUR API Key> | docker login nvcr.io -u $oauthtoken --password-stdin
     ```
-
+    
+- NGC CLI tools installation
+  - Follow instructions from [NGC CLI Download Page](https://org.ngc.nvidia.com/setup/installers/cli) to download and install NGC CLI tools
+    ```
+    unzip ngc-cli_linux.zip
+    chmod u+x ngc-cli/ngc
+    mv ./ngc-cli /opt/ngc-cli
+    ln -s /opt/ngc-cli/ngc /usr/local/bin/ngc
+    ```
+  - Login NGC
+    follow the instructions, set the API Key
+    ```bash
+    ngc config set
+    ```
 
 ## Features
 
@@ -47,9 +60,17 @@ cd audio2face-omniverse-diy-guide
 ./scripts/setup/install.sh
 ```
 
-3. Run Example
+
+3. Download Default Avatar Model
 ```bash
-docker-compose up
+ngc registry resource download-version "nvidia/ace/default-avatar-scene:1.0.0"
+```
+* ⚠️ 需要先登入 NGC 才能下載模型
+* ⚠️ Notice that should update the docker compose file for loading the model
+
+4. Run Example
+```bash
+docker compose up
 ```
 
 ## Documentation
