@@ -25,7 +25,7 @@ This repository provides complete practical guides and sample code for using NVI
     ```bash
     echo <YOUR API Key> | docker login nvcr.io -u $oauthtoken --password-stdin
     ```
-    
+
 - NGC CLI tools installation
   - Follow instructions from [NGC CLI Download Page](https://org.ngc.nvidia.com/setup/installers/cli) to download and install NGC CLI tools
     ```
@@ -65,8 +65,19 @@ cd audio2face-omniverse-diy-guide
 ```bash
 ngc registry resource download-version "nvidia/ace/default-avatar-scene:1.0.0"
 ```
-* ⚠️ 需要先登入 NGC 才能下載模型
+* ⚠️ Should login NGC before downloading the model
 * ⚠️ Notice that should update the docker compose file for loading the model
+
+```yaml
+omni_renderer:
+  volumes:
+    - path/to/your/model/default-avatar-scene_v1.0.0:/home/ace/asset
+...
+animation_graph:
+  volumes:
+    - path/to/your/model/default-avatar-scene_v1.0.0:/home/ace/asset
+...
+```
 
 4. Run Example
 ```bash
