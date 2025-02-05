@@ -58,8 +58,4 @@ sudo tcpdump -n -i any port 9020
 
 ## License
 
-[Add license information]
-
-## Contributing
-
-[How to contribute or report issues]
+#TODO
