@@ -27,6 +27,7 @@ rtmp {
 
         application live {
             live on;
+            idle_streams on;
             record off;
             
             # 允许所有来源的推流
